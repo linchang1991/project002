@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block blog_title %}博客详情{% endblock %}
+
+{% block content %}
+
+<div class="blog-post">
+    <h2 class="blog-post-title">{{ blog.title }}</h2>
+    <p class="blog-post-meta">{{ blog.created }} by {{ blog.author }}</p>
+    <p>{{ blog.content }}</p>
+    <hr>           
+</div>
+
+{% endblock %}
