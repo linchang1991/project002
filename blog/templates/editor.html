@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block blog_title %}编辑器{% endblock %}
+
+{% block content %}
+
+<textarea name="editor1"></textarea>
+        <script>
+            CKEDITOR.replace( 'editor1' , {uiColor: '#9AB8F3'});
+        </script>
+
+{% endblock %}
