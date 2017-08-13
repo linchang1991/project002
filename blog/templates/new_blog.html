@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block blog_title %}新博客{% endblock %}
+
+{% block content %}
+
+<form action = "" method = "post">
+{% csrf_token %}
+<p>标题：{{ form.title }} </p>
+<p>作者：{{ form.author }} </p>
+<p>{{ form.content }} </p>
+
+
+
+        <script>
+            CKEDITOR.replace( 'content' , 
+            	{
+            		uiColor: '#9AB8F3',
+            		"filebrowserUploadUrl" : "/uploadFiles",
+            		"image_previewText" : "",
+            	});
+        </script>
+        <nav>
+            <ul class="pager">
+              <!--<li><a href="/new_blog/">发布</a></li>-->
+              <li><input type="submit" value="发布" /></li>  
+
+              
+            </ul>
+          </nav>
+</form>
+
+{% endblock %}
