@@ -7,7 +7,9 @@
 <div class="blog-post">
     <h2 class="blog-post-title">{{ blog.title }}</h2>
     <p class="blog-post-meta">{{ blog.created }} by {{ blog.author }}</p>
+    {% autoescape off %}
     <p>{{ blog.content }}</p>
+    {% endautoescape %}
     <hr>           
 </div>
 

@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog.views import blogs, blog
+from blog.views import blogs, blog, new_blog, uploadFiles
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,5 +26,10 @@ urlpatterns = [
     #博客
     url(r'^blogs/$',blogs),
     url(r'^blog/(?P<blog_id>[^/]+)/$',blog),
+    
+    url(r'^uploadFiles',uploadFiles),
+    url(r'^new_blog/$', new_blog),    
     #url(r'^modify_staff/(?P<modify_staff_name>[^/]+)/$','examine.views.modify_staff'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

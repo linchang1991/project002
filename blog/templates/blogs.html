@@ -3,12 +3,32 @@
 {% block blog_title %}博客列表{% endblock %}
 
 {% block content %}
+
 {% for blog in blogs reversed %}
 <div class="blog-post">
     <h2 class="blog-post-title"><a href = "/blog/{{ blog.id }}">{{ blog.title }}</a></h2>
     <p class="blog-post-meta">{{ blog.created }} by {{ blog.author }}</p>
-    <!--<p>{{ blog.content |truncatewords:"30" }}</p>-->
     <hr>           
 </div>
 {% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+    	<ul class="pager">
+        {% if blogs.has_previous %}
+            <li><a href="?page={{ blogs.previous_page_number }}">前一页</a></li>
+        {% endif %}
+
+        <span class="current">
+            第{{ blogs.number }}页，共{{ blogs.paginator.num_pages }}页.
+        </span>
+
+        {% if blogs.has_next %}
+            <li><a href="?page={{ blogs.next_page_number }}">后一页</a></li>
+        {% endif %}
+        </ul>
+    </span>
+</div>
+
+
 {% endblock %}

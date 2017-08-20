@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'ckeditor',
-    'ckeditor_uploader',
+    #'ckeditor',
+    #'ckeditor_uploader',
+    #'pagination',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    #'pagination.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'project002.urls'
@@ -133,3 +135,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#MEDIA
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+MEDIA_URL = '/media/'
+
+
+#ckeditor
+#PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))   #F:\MyGit\MyDjangoProjects\project002\project002
+#STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+#CKEDITOR_UPLOAD_PATH = "uploads/"
+'''
+CHEDITOR_UPLOAD_PATH的作用是设定你通过ckeditor所上传的文件的存放目录。需要注意的是，这是一个相对路径，它相对与你设置的的MEDIA_ROOT。
+django-ckeditor默认使用django的后台文件存储系统，这需要你设置好MEDIA_ROOT和MEDIA_URL
+'''
+#CKEDITOR_IMAGE_BACKEND = "pillow"
+#CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
