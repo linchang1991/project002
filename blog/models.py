@@ -14,16 +14,17 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
+
 class Blog(models.Model):
     """
     博客
     """
     title = models.CharField('标题',max_length=50)
     author = models.CharField('作者',max_length=16)
-    #content = RichTextField(blank=True,null=True,verbose_name="内容")
     content = models.TextField()
     created = models.DateTimeField('发布时间',auto_now_add=True)
-    #catagory = models.ForeignKey(Catagory,verbose_name='分类')
     tags = models.ManyToManyField(Tag,verbose_name='标签',blank=True)
 
     def __unicode__(self):
@@ -41,10 +42,3 @@ class Comment(models.Model):
 
     def __unicode__(self):
         return self.content
-'''
-class Entry(models.Model):
-    body = RichTextUploadingField() #RichTextField()
-
-
-class Post(models.Model):
-    content = RichTextField()'''

@@ -31,7 +31,7 @@ logging.getLogger('').addHandler(console)
 def blogs(request):
 	if request.method == 'GET':
 		blogs = Blog.objects.all()
-		paginator = Paginator(blogs,1)
+		paginator = Paginator(blogs,10)
 		page = request.GET.get('page')
 		try:
 			blog_page = paginator.page(page)
