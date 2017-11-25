@@ -27,10 +27,12 @@ SECRET_KEY = 'a+_1t!3u)w(-3qpkqxcp%ge-9px=ku+8izuvfyo0@)83p8pym7'
 # SECURITY WARNING: don't run with debug turned on in production!
 if platform.system() == "Windows":
     DEBUG = True
+    ALLOWED_HOSTS = ['*']
 else:
     DEBUG = False
+    ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
