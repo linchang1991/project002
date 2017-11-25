@@ -142,8 +142,8 @@ MEDIA_URL = '/media/'
 
 
 #ckeditor
-#PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))   #F:\MyGit\MyDjangoProjects\project002\project002
-#STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))   #F:\MyGit\MyDjangoProjects\project002\project002
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 #CKEDITOR_UPLOAD_PATH = "uploads/"
 '''
 CHEDITOR_UPLOAD_PATH的作用是设定你通过ckeditor所上传的文件的存放目录。需要注意的是，这是一个相对路径，它相对与你设置的的MEDIA_ROOT。
