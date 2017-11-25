@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*- 
 """
 Django settings for project002 project.
 
@@ -11,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import platform
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -87,16 +89,28 @@ DATABASES = {
     }
 }'''
 #PostgreSQL
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project002',
-        'USER':"linchang",
-        'PASSWORD':"123456",
-        "HOST":"127.0.0.1",
-        "PORT":"5432",
-    }
-}
+if DEBUG:
+	DATABASES = {
+	    'default': {
+	        'ENGINE': 'django.db.backends.postgresql',
+	        'NAME': 'project002',
+	        'USER':"linchang",
+	        'PASSWORD':"123456",
+	        "HOST":"127.0.0.1",
+	        "PORT":"5432",
+	    }
+	}
+else:
+	DATABASES = {
+	    'default': {
+	        'ENGINE': 'django.db.backends.postgresql',
+	        'NAME': 'project002',
+	        'USER':"root",
+	        'PASSWORD':"71243635561@Aliyun",
+	        "HOST":"127.0.0.1",
+	        "PORT":"5432",
+	    }
+	}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
