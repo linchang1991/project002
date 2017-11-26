@@ -15,8 +15,7 @@ import os
 import platform
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  #F:\MyGit\MyDjangoProjects\project002
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -25,12 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a+_1t!3u)w(-3qpkqxcp%ge-9px=ku+8izuvfyo0@)83p8pym7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if platform.system() == "Windows":
-    DEBUG = True
-    ALLOWED_HOSTS = []
-else:
-    DEBUG = False
-    ALLOWED_HOSTS = ['*']
+
+DEBUG = True
+ALLOWED_HOSTS = []
+
+    #DEBUG = False
+    #ALLOWED_HOSTS = ['*']
 
 
 
@@ -94,7 +93,7 @@ DATABASES = {
     }
 }'''
 #PostgreSQL
-if DEBUG:
+if platform.system() == "Windows":
 	DATABASES = {
 	    'default': {
 	        'ENGINE': 'django.db.backends.postgresql',
@@ -161,8 +160,9 @@ MEDIA_URL = '/media/'
 
 
 #ckeditor
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))   #F:\MyGit\MyDjangoProjects\project002\project002
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+#PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))   #F:\MyGit\MyDjangoProjects\project002\project002
+#STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 #CKEDITOR_UPLOAD_PATH = "uploads/"
 '''
 CHEDITOR_UPLOAD_PATH的作用是设定你通过ckeditor所上传的文件的存放目录。需要注意的是，这是一个相对路径，它相对与你设置的的MEDIA_ROOT。
